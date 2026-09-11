@@ -9,7 +9,10 @@
    - Build Command: `npm install`
    - Start Command: `npm start`
 5. Add these environment variables in Render:
-   - `STRIPE_SECRET_KEY` = your live Stripe secret key
+   - `PAYMENT_PROVIDER` = `paystack`
+   - `PAYSTACK_SECRET_KEY` = your Paystack secret key
+   - `PAYSTACK_PUBLIC_KEY` = your Paystack public key
+   - `STRIPE_SECRET_KEY` = your Stripe secret key (optional fallback)
    - `PORT` = `10000`
    - `HOST` = `0.0.0.0`
    - `EMAIL_HOST` = `smtp.gmail.com`
