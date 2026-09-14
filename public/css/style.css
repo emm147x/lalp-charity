@@ -43,7 +43,7 @@ body {
   background: var(--cream);
   color: var(--ink-900);
   font-family: "Lato", sans-serif;
-  font-size: 17px;
+  font-size: clamp(16px, 0.7vw + 14px, 17px);
   line-height: 1.6;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
@@ -58,20 +58,33 @@ a {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6,
+.hero-title,
+.section-heading,
+.card-title,
+.feature-title,
+.program-title,
+.impact-title {
   font-family: "Merriweather", serif;
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.1;
   margin: 0 0 0.6em;
   letter-spacing: -0.02em;
   color: var(--navy-950);
+  max-width: 100%;
   text-wrap: balance;
-  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  text-align: inherit;
 }
 
 h1 {
-  max-width: 14ch;
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  max-width: 15ch;
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+  line-height: 1.08;
   text-rendering: optimizeLegibility;
 }
 
@@ -81,19 +94,26 @@ h2 {
 }
 
 h3 {
-  font-size: clamp(1.5rem, 2.1vw, 2rem);
+  font-size: clamp(1.4rem, 2vw, 2rem);
   max-width: 22ch;
 }
 
 h4 {
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  max-width: 24ch;
 }
 
-p {
+p,
+.hero-lede,
+.description-text,
+.lead,
+.site-copy {
   margin: 0 0 1em;
-  max-width: 62ch;
+  max-width: 65ch;
   text-align: left;
   text-wrap: pretty;
+  overflow-wrap: break-word;
+  word-break: break-word;
   word-spacing: normal;
   hyphens: auto;
 }
@@ -101,6 +121,11 @@ p {
 .text-justified {
   text-align: justify;
   text-wrap: pretty;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.5;
+  padding: 1.25rem 1.5rem;
 }
 
 .container {
@@ -359,7 +384,7 @@ p {
 }
 .hero-lede {
   color: rgba(251, 248, 240, 0.86);
-  font-size: 19px;
+  font-size: clamp(1.05rem, 1rem + 0.45vw, 1.2rem);
   max-width: 46ch;
   text-align: left;
 }
@@ -501,6 +526,14 @@ section {
   font-size: clamp(28px, 3.4vw, 38px);
   max-width: 18ch;
   text-align: left;
+}
+
+.section-head.centered,
+.section-intro.centered,
+.cta-band.centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .section-kicker {
   color: var(--accent-600);
@@ -832,6 +865,20 @@ section {
   flex-wrap: wrap;
   box-shadow: 0 18px 42px -28px rgba(15, 23, 48, 0.5);
 }
+
+.cta-band .cta-copy {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.cta-band .cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
 .cta-band h2 {
   color: var(--navy-950);
   margin: 0;
@@ -1148,6 +1195,12 @@ section {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+  }
+
+  .cta-band .cta-actions {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
   }
 }
 
