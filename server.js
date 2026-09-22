@@ -110,11 +110,14 @@ app.post('/api/create-checkout-session', async (req, res) => {
           reference: `lalp_${Date.now()}`,
           callback_url: `${origin}/success.html`,
           metadata: {
+            // custom_fields is Paystack's mechanism for showing extra info on the
+            // payment receipt — this is how the designation reaches the donor's receipt.
             custom_fields: [
               { display_name: 'Donor Name', variable_name: 'donor_name', value: name || '' },
               { display_name: 'Designation', variable_name: 'designation', value: designationLabel },
               { display_name: 'Donation Frequency', variable_name: 'frequency', value: frequency }
-            ]
+            ],
+            designation_key: designation || 'general'
           }
         })
       });
@@ -154,7 +157,8 @@ app.post('/api/create-checkout-session', async (req, res) => {
       customer_email: email,
       metadata: {
         donor_name: name || '',
-        designation: designationLabel
+        designation: designationLabel,
+        designation_key: designation || 'general'
       },
       success_url: `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/cancel.html`
@@ -164,6 +168,67 @@ app.post('/api/create-checkout-session', async (req, res) => {
   } catch (err) {
     console.error('Checkout error:', err.message);
     res.status(500).json({ message: 'Something went wrong starting checkout. Please try again shortly.' });
+  }
+});
+
+// ---------------------------------------------------------------
+// GET /api/donation-details
+// Query: ?session_id=... (Stripe) or ?reference=... / ?trxref=... (Paystack)
+// Looks up the completed transaction and returns what it was designated
+// toward, so the thank-you page can confirm it accurately instead of
+// trusting anything the browser sent before checkout.
+// ---------------------------------------------------------------
+app.get('/api/donation-details', async (req, res) => {
+  try {
+    const sessionId = req.query.session_id;
+    const reference = req.query.reference || req.query.trxref;
+
+    if (sessionId) {
+      if (!stripe) {
+        return res.status(500).json({ message: 'Stripe is not configured.' });
+      }
+
+      const session = await stripe.checkout.sessions.retrieve(sessionId);
+      const designationKey = session.metadata?.designation_key || 'general';
+
+      return res.json({
+        status: session.payment_status === 'paid' || session.status === 'complete' ? 'success' : session.status,
+        designationKey,
+        designationLabel: designationLabels[designationKey] || designationLabels.general,
+        amount: (session.amount_total ?? 0) / 100,
+        currency: (session.currency || 'ngn').toUpperCase()
+      });
+    }
+
+    if (reference) {
+      if (!paystackSecretKey) {
+        return res.status(500).json({ message: 'Paystack is not configured.' });
+      }
+
+      const verifyResponse = await fetch(`https://api.paystack.co/transaction/verify/${encodeURIComponent(reference)}`, {
+        headers: { Authorization: `Bearer ${paystackSecretKey}` }
+      });
+      const verifyData = await verifyResponse.json();
+      if (!verifyResponse.ok || !verifyData.status) {
+        throw new Error(verifyData.message || 'Could not verify transaction.');
+      }
+
+      const tx = verifyData.data;
+      const designationKey = tx.metadata?.designation_key || 'general';
+
+      return res.json({
+        status: tx.status === 'success' ? 'success' : tx.status,
+        designationKey,
+        designationLabel: designationLabels[designationKey] || designationLabels.general,
+        amount: (tx.amount ?? 0) / 100,
+        currency: tx.currency || 'NGN'
+      });
+    }
+
+    res.status(400).json({ message: 'Missing session_id or reference.' });
+  } catch (err) {
+    console.error('Donation details error:', err.message);
+    res.status(500).json({ message: 'Could not load donation details.' });
   }
 });
 
