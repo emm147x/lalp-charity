@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Donate — LALP Initiative</title>
+    <meta
+      name="description"
+      content="Donate to LALP Initiative to fund maternal health care, child welfare, legal aid, and welfare support for vulnerable families in the Egbeda pilot programme."
+    />
+    <meta name="theme-color" content="#0f1730" />
+    <link rel="icon" type="image/png" href="images/lalp-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Donate — LALP Initiative" />
+    <meta
+      property="og:description"
+      content="Donate to LALP Initiative to fund maternal health care, child welfare, legal aid, and welfare support for vulnerable families in the Egbeda pilot programme."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Donate — LALP Initiative" />
+    <meta
+      name="twitter:description"
+      content="Donate to LALP Initiative to fund maternal health care, child welfare, legal aid, and welfare support for vulnerable families in the Egbeda pilot programme."
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -17,7 +35,7 @@
           />
         </a>
         <nav>
-          <ul class="nav-links">
+          <ul class="nav-links" id="primary-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="programs.html">Programs</a></li>
@@ -27,7 +45,7 @@
         </nav>
         <div class="nav-cta">
           <a href="donate.html" class="btn btn-accent">Donate now</a>
-          <button class="menu-toggle" aria-label="Open menu">
+          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -50,7 +68,7 @@
       <section>
         <div class="container donate-wrap">
           <div class="donate-card">
-            <h3 style="margin-bottom: 4px">Make a donation</h3>
+            <h2 style="margin-bottom: 4px">Make a donation</h2>
             <p class="text-caption">
               Give in Naira (₦) or US dollars ($) to support the Egbeda pilot.
             </p>
@@ -68,30 +86,31 @@
               role="group"
               aria-label="Donation frequency"
             >
-              <button type="button" class="selected" data-freq="once">
+              <button type="button" class="selected" data-freq="once" aria-pressed="true">
                 Give once
               </button>
-              <button type="button" data-freq="monthly">Give monthly</button>
+              <button type="button" data-freq="monthly" aria-pressed="false">Give monthly</button>
             </div>
 
-            <div class="amount-grid" id="amount-grid">
+            <div class="amount-grid" id="amount-grid" role="group" aria-label="Preset donation amount">
               <button
                 type="button"
                 class="amount-btn selected"
                 data-amount="5000"
+                aria-pressed="true"
               >
                 ₦5,000
               </button>
-              <button type="button" class="amount-btn" data-amount="10000">
+              <button type="button" class="amount-btn" data-amount="10000" aria-pressed="false">
                 ₦10,000
               </button>
-              <button type="button" class="amount-btn" data-amount="25000">
+              <button type="button" class="amount-btn" data-amount="25000" aria-pressed="false">
                 ₦25,000
               </button>
-              <button type="button" class="amount-btn" data-amount="50000">
+              <button type="button" class="amount-btn" data-amount="50000" aria-pressed="false">
                 ₦50,000
               </button>
-              <button type="button" class="amount-btn" data-amount="100000">
+              <button type="button" class="amount-btn" data-amount="100000" aria-pressed="false">
                 ₦100,000
               </button>
               <button
@@ -99,6 +118,7 @@
                 class="amount-btn"
                 id="custom-amount-btn"
                 data-amount="custom"
+                aria-pressed="false"
               >
                 Other
               </button>
@@ -213,7 +233,7 @@
             </p>
           </div>
           <div>
-            <h5>Explore</h5>
+            <h3>Explore</h3>
             <ul>
               <li><a href="about.html">About us</a></li>
               <li><a href="programs.html">Our programs</a></li>
@@ -221,7 +241,7 @@
             </ul>
           </div>
           <div>
-            <h5>Get involved</h5>
+            <h3>Get involved</h3>
             <ul>
               <li><a href="donate.html">Donate</a></li>
               <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -229,7 +249,7 @@
             </ul>
           </div>
           <div>
-            <h5>Contact</h5>
+            <h3>Contact</h3>
             <ul>
               <li>
                 <a href="https://www.lalpiniviative.com.ng"

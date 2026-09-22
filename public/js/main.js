@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setMenuState = (open) => {
       links.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       toggle.classList.toggle('is-open', open);
     };
 
@@ -39,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!payload.name || !payload.email || !payload.message) {
         status.textContent = 'Please complete the required fields before sending your message.';
+        status.className = 'status-msg show status-err';
+        return;
+      }
+
+      if (!/^\S+@\S+\.\S+$/.test(payload.email)) {
+        status.textContent = 'Please enter a valid email address.';
         status.className = 'status-msg show status-err';
         return;
       }

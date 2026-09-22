@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About Us — LALP Initiative</title>
+    <meta
+      name="description"
+      content="Learn about LALP Initiative's mission to protect the rights, wellbeing, and dignity of vulnerable women, children, and families through legal aid and practical support since 2020."
+    />
+    <meta name="theme-color" content="#0f1730" />
+    <link rel="icon" type="image/png" href="images/lalp-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About Us — LALP Initiative" />
+    <meta
+      property="og:description"
+      content="Learn about LALP Initiative's mission to protect the rights, wellbeing, and dignity of vulnerable women, children, and families through legal aid and practical support since 2020."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="About Us — LALP Initiative" />
+    <meta
+      name="twitter:description"
+      content="Learn about LALP Initiative's mission to protect the rights, wellbeing, and dignity of vulnerable women, children, and families through legal aid and practical support since 2020."
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -17,7 +35,7 @@
           />
         </a>
         <nav>
-          <ul class="nav-links">
+          <ul class="nav-links" id="primary-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html" class="active">About</a></li>
             <li><a href="programs.html">Programs</a></li>
@@ -27,7 +45,7 @@
         </nav>
         <div class="nav-cta">
           <a href="donate.html" class="btn btn-accent">Donate now</a>
-          <button class="menu-toggle" aria-label="Open menu">
+          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -36,7 +54,7 @@
 
     <main>
       <section class="hero hero-page">
-        <div class="dot-field"></div>
+        <div class="dot-field" aria-hidden="true"></div>
         <div class="container">
           <p class="eyebrow">About the organization</p>
           <h1 style="max-width: 20ch">
@@ -131,7 +149,7 @@
             </p>
           </div>
           <div>
-            <h5>Explore</h5>
+            <h3>Explore</h3>
             <ul>
               <li><a href="about.html">About us</a></li>
               <li><a href="programs.html">Our programs</a></li>
@@ -139,7 +157,7 @@
             </ul>
           </div>
           <div>
-            <h5>Get involved</h5>
+            <h3>Get involved</h3>
             <ul>
               <li><a href="donate.html">Donate</a></li>
               <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -147,7 +165,7 @@
             </ul>
           </div>
           <div>
-            <h5>Contact</h5>
+            <h3>Contact</h3>
             <ul>
               <li>
                 <a href="https://www.lalpiniviative.com.ng"

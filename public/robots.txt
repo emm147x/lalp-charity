@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /success.html
+Disallow: /cancel.html

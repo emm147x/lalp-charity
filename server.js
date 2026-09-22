@@ -64,6 +64,17 @@ const designationLabels = {
 };
 
 const getOrigin = (req) => req.headers.origin || `${req.protocol}://${req.get('host')}`;
+const isValidEmail = (value) => /^\S+@\S+\.\S+$/.test(String(value || '').trim());
+
+// Escapes user-supplied text before it's interpolated into the HTML email
+// body, so a submitted name/reason/message can't inject markup or scripts
+// into the notification email.
+const escapeHtml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
 
 // ---------------------------------------------------------------
 // POST /api/create-checkout-session
@@ -78,8 +89,8 @@ app.post('/api/create-checkout-session', async (req, res) => {
     if (!numericAmount || numericAmount < 1) {
       return res.status(400).json({ message: 'Please provide a valid donation amount.' });
     }
-    if (!email) {
-      return res.status(400).json({ message: 'Please provide an email address.' });
+    if (!email || !isValidEmail(email)) {
+      return res.status(400).json({ message: 'Please provide a valid email address.' });
     }
 
     const normalizedCurrency = String(currency || 'ngn').toLowerCase();
@@ -249,7 +260,7 @@ app.post('/api/contact', async (req, res) => {
     }
 
     const trimmedEmail = String(email).trim();
-    if (!/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
+    if (!isValidEmail(trimmedEmail)) {
       return res.status(400).json({
         message: 'Please enter a valid email address.'
       });
@@ -278,7 +289,7 @@ ${message}
       replyTo: trimmedEmail,
       subject,
       text: emailBody,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${trimmedEmail}</p><p><strong>Reason:</strong> ${reason || 'General enquiry'}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`
+      html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(trimmedEmail)}</p><p><strong>Reason:</strong> ${escapeHtml(reason || 'General enquiry')}</p><p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>`
     });
 
     res.json({ ok: true, message: 'Thank you — your message has been sent.' });

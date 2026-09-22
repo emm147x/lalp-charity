@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Our Programs — LALP Initiative</title>
+    <meta
+      name="description"
+      content="Explore LALP Initiative's four core programs: maternal health support, child welfare and protection, access to justice, and social and welfare empowerment."
+    />
+    <meta name="theme-color" content="#0f1730" />
+    <link rel="icon" type="image/png" href="images/lalp-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Our Programs — LALP Initiative" />
+    <meta
+      property="og:description"
+      content="Explore LALP Initiative's four core programs: maternal health support, child welfare and protection, access to justice, and social and welfare empowerment."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Our Programs — LALP Initiative" />
+    <meta
+      name="twitter:description"
+      content="Explore LALP Initiative's four core programs: maternal health support, child welfare and protection, access to justice, and social and welfare empowerment."
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -17,7 +35,7 @@
           />
         </a>
         <nav>
-          <ul class="nav-links">
+          <ul class="nav-links" id="primary-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="programs.html" class="active">Programs</a></li>
@@ -27,7 +45,7 @@
         </nav>
         <div class="nav-cta">
           <a href="donate.html" class="btn btn-accent">Donate now</a>
-          <button class="menu-toggle" aria-label="Open menu">
+          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -36,7 +54,7 @@
 
     <main>
       <section class="hero hero-page">
-        <div class="dot-field"></div>
+        <div class="dot-field" aria-hidden="true"></div>
         <div class="container">
           <p class="eyebrow">Issues addressed by the charity</p>
           <h1 style="max-width: 22ch">
@@ -55,7 +73,7 @@
           <div class="split">
             <div>
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -93,7 +111,7 @@
           <div class="split reverse">
             <div>
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -129,7 +147,7 @@
           <div class="split">
             <div>
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -166,7 +184,7 @@
           <div class="split reverse">
             <div>
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -221,7 +239,7 @@
             </p>
           </div>
           <div>
-            <h5>Explore</h5>
+            <h3>Explore</h3>
             <ul>
               <li><a href="about.html">About us</a></li>
               <li><a href="programs.html">Our programs</a></li>
@@ -229,7 +247,7 @@
             </ul>
           </div>
           <div>
-            <h5>Get involved</h5>
+            <h3>Get involved</h3>
             <ul>
               <li><a href="donate.html">Donate</a></li>
               <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -237,7 +255,7 @@
             </ul>
           </div>
           <div>
-            <h5>Contact</h5>
+            <h3>Contact</h3>
             <ul>
               <li>
                 <a href="https://www.lalpiniviative.com.ng"

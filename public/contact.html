@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact &amp; Collaborate — LALP Initiative</title>
+<meta name="description" content="Get in touch with LALP Initiative to ask a question, explore a partnership, or refer someone who needs legal aid, maternal health, or welfare support.">
+<meta name="theme-color" content="#0f1730">
+<link rel="icon" type="image/png" href="images/lalp-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact &amp; Collaborate — LALP Initiative">
+<meta property="og:description" content="Get in touch with LALP Initiative to ask a question, explore a partnership, or refer someone who needs legal aid, maternal health, or welfare support.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact &amp; Collaborate — LALP Initiative">
+<meta name="twitter:description" content="Get in touch with LALP Initiative to ask a question, explore a partnership, or refer someone who needs legal aid, maternal health, or welfare support.">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +23,7 @@
       <img src="images/lalp-logo.png" alt="LALP Initiative — Justice for All, Support for the Vulnerable" class="brand-logo">
     </a>
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="programs.html">Programs</a></li>
@@ -24,14 +33,14 @@
     </nav>
     <div class="nav-cta">
       <a href="donate.html" class="btn btn-accent">Donate now</a>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="hero hero-page">
-    <div class="dot-field"></div>
+    <div class="dot-field" aria-hidden="true"></div>
     <div class="container">
       <p class="eyebrow">Join us as a partner in change</p>
       <h1 style="max-width:18ch;">Let's talk about working together.</h1>
@@ -49,15 +58,15 @@
       </div>
       <div class="collab-grid">
         <div class="collab-card">
-          <h4>Community Sponsor</h4>
+          <h3>Community Sponsor</h3>
           <p>Back a specific ward or community through the Egbeda pilot and beyond.</p>
         </div>
         <div class="collab-card">
-          <h4>Corporate Partner</h4>
+          <h3>Corporate Partner</h3>
           <p>Fund a program area as part of your organization's giving or CSR commitments.</p>
         </div>
         <div class="collab-card">
-          <h4>Individual Contributor</h4>
+          <h3>Individual Contributor</h3>
           <p>Give one-time or monthly, at any amount, and follow the pilot's progress.</p>
         </div>
       </div>
@@ -103,7 +112,7 @@
           <div class="impact-line"><span class="budget-swatch" style="background:var(--accent-500);"></span>
             <span><a href="mailto:lalpinitiative@gmail.com">lalpinitiative@gmail.com</a></span></div>
           <div class="impact-line"><span class="budget-swatch" style="background:var(--accent-500);"></span>
-            <span><a href="https://www.lalpiniviative.com.ng" target="_blank" rel="noopener">www.lalpiniviative.com.ng</a></span></div>
+            <span><a href="https://www.lalpiniviative.com.ng" target="_blank" rel="noopener noreferrer">www.lalpiniviative.com.ng</a></span></div>
           <div class="impact-line"><span class="budget-swatch" style="background:var(--accent-500);"></span>
             <span>Pilot site: Egbeda, Primary Health Care centre</span></div>
         </div>
@@ -125,7 +134,7 @@
         <p class="footer-desc">Legal Aid for the Less Privileged Initiative — protecting the rights, wellbeing, and dignity of disadvantaged members of society since 2020.</p>
       </div>
       <div>
-        <h5>Explore</h5>
+        <h3>Explore</h3>
         <ul>
           <li><a href="about.html">About us</a></li>
           <li><a href="programs.html">Our programs</a></li>
@@ -133,7 +142,7 @@
         </ul>
       </div>
       <div>
-        <h5>Get involved</h5>
+        <h3>Get involved</h3>
         <ul>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -141,7 +150,7 @@
         </ul>
       </div>
       <div>
-        <h5>Contact</h5>
+        <h3>Contact</h3>
         <ul>
           <li><a href="https://www.lalpiniviative.com.ng">www.lalpiniviative.com.ng</a></li>
           <li><a href="mailto:lalpinitiative@gmail.com">lalpinitiative@gmail.com</a></li>

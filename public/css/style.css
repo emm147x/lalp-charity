@@ -418,7 +418,7 @@ p,
   border-radius: calc(var(--radius-md) - 4px);
   pointer-events: none;
 }
-.hero-card h3 {
+.hero-card h2 {
   font-size: 21px;
 }
 .hero-card ul {
@@ -686,7 +686,7 @@ section {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.tl-step h4 {
+.tl-step h3 {
   color: var(--cream);
   font-size: 18px;
   margin: 0;
@@ -780,7 +780,7 @@ section {
   padding: 34px 26px;
   text-align: center;
 }
-.collab-card h4 {
+.collab-card h3 {
   font-size: 19px;
   margin-bottom: 8px;
 }
@@ -837,7 +837,7 @@ section {
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(251, 248, 240, 0.14);
 }
-.footer-grid h5 {
+.footer-grid h3 {
   color: var(--cream);
   font-weight: 600;
   font-size: 14.5px;

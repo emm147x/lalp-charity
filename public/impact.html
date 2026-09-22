@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Impact &amp; Budget — LALP Initiative</title>
+<meta name="description" content="See how LALP Initiative allocates the pilot budget and tracks accountability across maternal health, access to justice, and welfare programs.">
+<meta name="theme-color" content="#0f1730">
+<link rel="icon" type="image/png" href="images/lalp-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Impact &amp; Budget — LALP Initiative">
+<meta property="og:description" content="See how LALP Initiative allocates the pilot budget and tracks accountability across maternal health, access to justice, and welfare programs.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Impact &amp; Budget — LALP Initiative">
+<meta name="twitter:description" content="See how LALP Initiative allocates the pilot budget and tracks accountability across maternal health, access to justice, and welfare programs.">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +23,7 @@
       <img src="images/lalp-logo.png" alt="LALP Initiative — Justice for All, Support for the Vulnerable" class="brand-logo">
     </a>
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="programs.html">Programs</a></li>
@@ -24,14 +33,14 @@
     </nav>
     <div class="nav-cta">
       <a href="donate.html" class="btn btn-accent">Donate now</a>
-      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="hero hero-page">
-    <div class="dot-field"></div>
+    <div class="dot-field" aria-hidden="true"></div>
     <div class="container">
       <p class="eyebrow">Desired outcomes &amp; benefits</p>
       <h1 style="max-width:22ch;">By 2030, we aim to change what's possible for vulnerable families.</h1>
@@ -51,7 +60,7 @@
       </div>
 
       <div class="budget-wrap">
-        <svg class="donut" width="280" height="280" viewBox="0 0 42 42">
+        <svg aria-hidden="true" focusable="false" class="donut" width="280" height="280" viewBox="0 0 42 42">
           <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#E4EDFB" stroke-width="6"></circle>
           <circle cx="21" cy="21" r="15.9" fill="transparent" stroke="#7FA8E8" stroke-width="6"
             stroke-dasharray="62.5 37.5" stroke-dashoffset="25"></circle>
@@ -91,7 +100,7 @@
       </div>
       <div class="split-media">
         <div class="art-block art-care">
-          <svg viewBox="0 0 100 100" fill="none"><rect x="15" y="55" width="12" height="28" fill="#16224A"/><rect x="35" y="40" width="12" height="43" fill="#7FA8E8"/><rect x="55" y="25" width="12" height="58" fill="#16224A"/><path d="M15 20l20 15 20-20 20 10" stroke="#3D57A8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 100 100" fill="none"><rect x="15" y="55" width="12" height="28" fill="#16224A"/><rect x="35" y="40" width="12" height="43" fill="#7FA8E8"/><rect x="55" y="25" width="12" height="58" fill="#16224A"/><path d="M15 20l20 15 20-20 20 10" stroke="#3D57A8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </div>
@@ -115,7 +124,7 @@
         <p class="footer-desc">Legal Aid for the Less Privileged Initiative — protecting the rights, wellbeing, and dignity of disadvantaged members of society since 2020.</p>
       </div>
       <div>
-        <h5>Explore</h5>
+        <h3>Explore</h3>
         <ul>
           <li><a href="about.html">About us</a></li>
           <li><a href="programs.html">Our programs</a></li>
@@ -123,7 +132,7 @@
         </ul>
       </div>
       <div>
-        <h5>Get involved</h5>
+        <h3>Get involved</h3>
         <ul>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -131,7 +140,7 @@
         </ul>
       </div>
       <div>
-        <h5>Contact</h5>
+        <h3>Contact</h3>
         <ul>
           <li><a href="https://www.lalpiniviative.com.ng">www.lalpiniviative.com.ng</a></li>
           <li><a href="mailto:lalpinitiative@gmail.com">lalpinitiative@gmail.com</a></li>

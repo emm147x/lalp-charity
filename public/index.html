@@ -8,6 +8,20 @@
       name="description"
       content="Legal Aid for the Less Privileged Initiative provides legal support, maternal health assistance, and child welfare services to vulnerable communities."
     />
+    <meta name="theme-color" content="#0f1730" />
+    <link rel="icon" type="image/png" href="images/lalp-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="LALP Initiative — Justice for All, Support for the Vulnerable" />
+    <meta
+      property="og:description"
+      content="Legal Aid for the Less Privileged Initiative provides legal support, maternal health assistance, and child welfare services to vulnerable communities."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="LALP Initiative — Justice for All, Support for the Vulnerable" />
+    <meta
+      name="twitter:description"
+      content="Legal Aid for the Less Privileged Initiative provides legal support, maternal health assistance, and child welfare services to vulnerable communities."
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -21,7 +35,7 @@
           />
         </a>
         <nav>
-          <ul class="nav-links">
+          <ul class="nav-links" id="primary-nav">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="programs.html">Programs</a></li>
@@ -31,7 +45,7 @@
         </nav>
         <div class="nav-cta">
           <a href="donate.html" class="btn btn-accent">Donate now</a>
-          <button class="menu-toggle" aria-label="Open menu">
+          <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
             <span></span><span></span><span></span>
           </button>
         </div>
@@ -41,7 +55,7 @@
     <main>
       <!-- HERO -->
       <section class="hero">
-        <div class="dot-field"></div>
+        <div class="dot-field" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div>
             <p class="eyebrow">Empowering the vulnerable since 2020</p>
@@ -77,23 +91,23 @@
           </div>
 
           <div class="hero-card">
-            <h3>Why this matters</h3>
+            <h2>Why this matters</h2>
             <p class="text-caption">The cost of exclusion is too high</p>
             <ul>
               <li>
-                <span class="tick">✓</span> Safe access to legal guidance
+                <span class="tick" aria-hidden="true">✓</span> Safe access to legal guidance
                 and rights information
               </li>
               <li>
-                <span class="tick">✓</span> Support for women facing social
+                <span class="tick" aria-hidden="true">✓</span> Support for women facing social
                 and health barriers
               </li>
               <li>
-                <span class="tick">✓</span> Protection and care for children
+                <span class="tick" aria-hidden="true">✓</span> Protection and care for children
                 in vulnerable households
               </li>
               <li>
-                <span class="tick">✓</span> Practical community support that
+                <span class="tick" aria-hidden="true">✓</span> Practical community support that
                 restores stability
               </li>
             </ul>
@@ -150,7 +164,7 @@
           <div class="program-list">
             <div class="program-card">
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -171,7 +185,7 @@
             </div>
             <div class="program-card">
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -191,7 +205,7 @@
             </div>
             <div class="program-card">
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -212,7 +226,7 @@
             </div>
             <div class="program-card">
               <div class="program-icon">
-                <svg
+                <svg aria-hidden="true" focusable="false"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke-width="2"
@@ -255,7 +269,7 @@
                 <div class="tl-dot">01</div>
                 <div class="tl-meta">
                   <p class="tl-period">Assess</p>
-                  <h4>Listen to community need</h4>
+                  <h3>Listen to community need</h3>
                 </div>
               </div>
               <p class="tl-copy">
@@ -268,7 +282,7 @@
                 <div class="tl-dot">02</div>
                 <div class="tl-meta">
                   <p class="tl-period">Deliver</p>
-                  <h4>Respond with purpose</h4>
+                  <h3>Respond with purpose</h3>
                 </div>
               </div>
               <p class="tl-copy">
@@ -281,7 +295,7 @@
                 <div class="tl-dot">03</div>
                 <div class="tl-meta">
                   <p class="tl-period">Report</p>
-                  <h4>Track impact honestly</h4>
+                  <h3>Track impact honestly</h3>
                 </div>
               </div>
               <p class="tl-copy">
@@ -340,7 +354,7 @@
             </p>
           </div>
           <div>
-            <h5>Explore</h5>
+            <h3>Explore</h3>
             <ul>
               <li><a href="about.html">About us</a></li>
               <li><a href="programs.html">Our programs</a></li>
@@ -348,7 +362,7 @@
             </ul>
           </div>
           <div>
-            <h5>Get involved</h5>
+            <h3>Get involved</h3>
             <ul>
               <li><a href="donate.html">Donate</a></li>
               <li><a href="contact.html#collaborate">Corporate partner</a></li>
@@ -356,7 +370,7 @@
             </ul>
           </div>
           <div>
-            <h5>Contact</h5>
+            <h3>Contact</h3>
             <ul>
               <li>
                 <a href="https://www.lalpiniviative.com.ng"

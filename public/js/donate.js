@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
           type="button"
           class="amount-btn ${isSelected ? 'selected' : ''}"
           data-amount="${amount}"
+          aria-pressed="${isSelected}"
         >
           ${formatCurrency(amount, selectedCurrency)}
         </button>
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         class="amount-btn"
         id="custom-amount-btn"
         data-amount="custom"
+        aria-pressed="false"
       >
         Other
       </button>`;
@@ -81,8 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = e.target.closest('.amount-btn');
     if (!btn) return;
 
-    [...amountGrid.querySelectorAll('.amount-btn')].forEach((b) => b.classList.remove('selected'));
+    [...amountGrid.querySelectorAll('.amount-btn')].forEach((b) => {
+      b.classList.remove('selected');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('selected');
+    btn.setAttribute('aria-pressed', 'true');
 
     if (btn.dataset.amount === 'custom') {
       customField.style.display = 'block';
@@ -110,8 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
   freqToggle.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-freq]');
     if (!btn) return;
-    [...freqToggle.querySelectorAll('button')].forEach((b) => b.classList.remove('selected'));
+    [...freqToggle.querySelectorAll('button')].forEach((b) => {
+      b.classList.remove('selected');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('selected');
+    btn.setAttribute('aria-pressed', 'true');
     frequency = btn.dataset.freq;
     refreshButton();
   });
@@ -134,12 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const emailValue = document.getElementById('d-email').value.trim();
+    if (!/^\S+@\S+\.\S+$/.test(emailValue)) {
+      statusEl.textContent = 'Please enter a valid email address.';
+      statusEl.className = 'status-msg show status-err';
+      return;
+    }
+
     const payload = {
       amount: Number(selectedAmount),
       currency: currencyCode,
       frequency: frequency,
       name: document.getElementById('d-name').value,
-      email: document.getElementById('d-email').value,
+      email: emailValue,
       designation: document.getElementById('d-designation').value
     };
 
