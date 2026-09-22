@@ -3,60 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Premium homepage carousel
-  const heroCarousel = document.querySelector('.hero-carousel');
-  if (heroCarousel) {
-    const slides = [...heroCarousel.querySelectorAll('.hero-slide')];
-    const dots = [...heroCarousel.querySelectorAll('.carousel-dot')];
-    const prevBtn = heroCarousel.querySelector('.carousel-btn.prev');
-    const nextBtn = heroCarousel.querySelector('.carousel-btn.next');
-
-    let currentSlide = 0;
-    let autoRotate;
-
-    const showSlide = (index) => {
-      currentSlide = (index + slides.length) % slides.length;
-
-      slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle('is-active', slideIndex === currentSlide);
-      });
-
-      dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle('is-active', dotIndex === currentSlide);
-        dot.setAttribute('aria-current', dotIndex === currentSlide ? 'true' : 'false');
-      });
-    };
-
-    const startAutoRotate = () => {
-      clearInterval(autoRotate);
-      autoRotate = setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 6000);
-    };
-
-    prevBtn?.addEventListener('click', () => {
-      showSlide(currentSlide - 1);
-      startAutoRotate();
-    });
-
-    nextBtn?.addEventListener('click', () => {
-      showSlide(currentSlide + 1);
-      startAutoRotate();
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        showSlide(index);
-        startAutoRotate();
-      });
-    });
-
-    heroCarousel.addEventListener('mouseenter', () => clearInterval(autoRotate));
-    heroCarousel.addEventListener('mouseleave', startAutoRotate);
-    showSlide(0);
-    startAutoRotate();
-  }
-
   // Mobile nav toggle
   const toggle = document.querySelector('.menu-toggle');
   const links = document.querySelector('.nav-links');
